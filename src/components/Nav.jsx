@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Style/Nav.style.css";
 const Nav = () => {
   return (
     <nav className="Nav">

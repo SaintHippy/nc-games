@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-export const ToggleUpDoot = () => {
-  const [updoot, setUpdoot] = useState({});
-  console.log("U");
+// export const ToggleUpDoot = () => {
+//   const [updoot, setUpdoot] = useState({});
+//   console.log("U");
 
-  useEffect(() => {});
-};
+//   useEffect(() => {});
+// };
 
-export const ToggleDownDoot = () => {
-  const [downDoot, setDowndoot] = useState({});
-  console.log("D");
+// export const ToggleDownDoot = () => {
+//   const [downDoot, setDowndoot] = useState({});
+//   console.log("D");
 
-  useEffect(() => {});
-};
+//   useEffect(() => {});
+// };

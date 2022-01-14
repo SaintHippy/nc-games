@@ -1,6 +1,29 @@
-const UserList = () =>{
+import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+import { getUsers } from "../utils/api";
+
+const UserList = () => {
+  const [Users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getUsers().then((UsersFromServer) => {
+      setUsers(UsersFromServer);
+    });
+  }, []);
+
   return (
-    <hi> Users </hi>
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {Users.map((element) => {
+          return (
+            <li key={element.slug}>
+              <p>{element.slug}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

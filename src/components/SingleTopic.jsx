@@ -1,21 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { getArticles } from "../utils/api";
 
-const ArticlesList = () => {
+const SingleTopic = () => {
+  const { topic } = useParams();
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    getArticles().then((articlesFromServer) => {
-      setArticles(articlesFromServer);
+    getArticles(topic).then((ArticlesFromServer) => {
+      setArticles(ArticlesFromServer);
     });
-  }, []);
+  }, [topic]);
+
+  console.log(articles);
 
   return (
     <div>
-      <h1>All Articles</h1>
+      <h1>Articles by topic</h1>
+      <h2>{topic}</h2>
       <ul>
         {articles.map((element) => {
+          // if (element.topic === topic_slug) {
           return (
             <li key={element.article_id}>
               <Link to={`/article/${element.article_id}`}>
@@ -23,10 +28,11 @@ const ArticlesList = () => {
               </Link>
             </li>
           );
+          // }
         })}
       </ul>
     </div>
   );
 };
 
-export default ArticlesList;
+export default SingleTopic;

@@ -1,5 +1,18 @@
+import { Link } from "react-router-dom";
 const Nav = () => {
-  return <h1> here is a navigation bar </h1>;
+  return (
+    <nav className="Nav">
+      <Link to="/">
+        <p className="NavLink">Home</p>
+      </Link>
+      <Link to="/articles">
+        <p className="NavLink">All articles</p>
+      </Link>
+      <Link to="/topics">
+        <p className="NavLink">All Topics</p>
+      </Link>
+    </nav>
+  );
 };
 
 export default Nav;

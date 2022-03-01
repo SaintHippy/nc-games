@@ -6,7 +6,7 @@ import UserList from "./components/UsersList";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import TopicsList from "./components/TopicsList";
-import "./App.css";
+import "./styles/App.css";
 import SingleArticle from "./components/SingleArticle";
 import SingleTopic from "./components/SingleTopic";
 import CommentsList from "./components/CommentsList";

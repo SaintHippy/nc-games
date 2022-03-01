@@ -1,9 +1,7 @@
 body {
   margin: 0;
-  background-color: #fffbf0;
-  color: #282612;
 
-  font-family: "Varela Round", sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

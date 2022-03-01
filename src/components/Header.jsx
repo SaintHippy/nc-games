@@ -1,9 +1,9 @@
-import "./Style/Header.style.css";
+import "../styles/header.css";
 
 const Header = () => {
   return (
     <div className="HeaderMain">
-      <h1 Class> Welcome to the news!</h1>
+      <h1> GamesPunk 2077</h1>
     </div>
   );
 };

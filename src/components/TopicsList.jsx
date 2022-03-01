@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
+import "../styles/topicsList.css";
 
 const TopicList = () => {
   const [topics, setTopics] = useState([]);
@@ -12,7 +13,7 @@ const TopicList = () => {
   }, []);
 
   return (
-    <div>
+    <div ClassName="listBox">
       <h1>Topics</h1>
       <ul>
         {topics.map((element) => {

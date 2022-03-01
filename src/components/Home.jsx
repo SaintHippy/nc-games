@@ -1,14 +1,22 @@
 import ArticlesList from "./ArticlesList";
 import TopicList from "./TopicsList";
-<link rel="stylesheet" href="../style/home.style.css" />;
+import "../styles/home.css";
 
 const HomePage = () => {
   return (
-    <>
-      <h1 className="mainTitle"> News Hub</h1>
-      <TopicList />
-      <ArticlesList />
-    </>
+    <div className="pageWholeBody">
+      <div className="titleBar">
+        <h1 className="titleText">Hub</h1>
+      </div>
+      <div className="mainBody">
+        <div className="Box">
+          <TopicList />
+        </div>
+        <div className="Box">
+          <ArticlesList />
+        </div>
+      </div>
+    </div>
   );
 };
 

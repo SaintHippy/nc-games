@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
-import "../styles/topicsList.css";
 
 const TopicList = () => {
   const [topics, setTopics] = useState([]);
@@ -14,8 +13,8 @@ const TopicList = () => {
 
   return (
     <div ClassName="listBox">
-      <h1>Topics</h1>
-      <ul>
+      <h1 className="titleText">Topics</h1>
+      <ul className="textList">
         {topics.map((element) => {
           return (
             <li key={element.slug}>

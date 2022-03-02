@@ -13,8 +13,8 @@ const ArticlesList = () => {
 
   return (
     <div>
-      <h1>All Articles</h1>
-      <ul>
+      <h1 className="titleText">All Articles</h1>
+      <ul className="textList">
         {articles.map((element) => {
           return (
             <li key={element.article_id}>

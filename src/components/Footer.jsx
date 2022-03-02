@@ -1,9 +1,24 @@
+import "../styles/footer.css";
+
 const Footer = () => {
   return (
-    <h1>
-      Background by:
-      https://unsplash.com/photos/psdV2Rl-GvU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink{" "}
-    </h1>
+    <div className="footer">
+      <p className="footerText">
+        Background by:
+        <a
+          href="https://unsplash.com/photos/psdV2Rl-GvU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+          target="_blank"
+        >
+          @chengfengrecord
+        </a>
+      </p>
+      <p className="footerText">
+        Design consultant:
+        <a href="https://bigmouth.fandom.com/wiki/Nick_Birch" target="_blank">
+          Nicky J Birch
+        </a>
+      </p>
+    </div>
   );
 };
 

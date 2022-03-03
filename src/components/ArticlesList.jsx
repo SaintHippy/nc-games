@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getArticles } from "../utils/api";
+import { Link } from "react-router-dom";
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
@@ -12,7 +12,7 @@ const ArticlesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pageWholeBody">
       <h1 className="titleText">All Articles</h1>
       <ul className="textList">
         {articles.map((element) => {

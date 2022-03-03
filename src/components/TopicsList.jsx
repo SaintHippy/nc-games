@@ -12,7 +12,7 @@ const TopicList = () => {
   }, []);
 
   return (
-    <div ClassName="listBox">
+    <div ClassName="pageWholeBody">
       <h1 className="titleText">Topics</h1>
       <ul className="textList">
         {topics.map((element) => {

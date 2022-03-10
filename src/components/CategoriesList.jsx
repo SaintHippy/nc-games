@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-import { getTopics } from "../utils/api";
+import { getCategories } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const TopicList = () => {
-  const [topics, setTopics] = useState([]);
+const CategoriesList = () => {
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getTopics().then((topicsFromServer) => {
-      setTopics(topicsFromServer);
+    getCategories().then((categoriesFromServer) => {
+      setCategories(categoriesFromServer);
     });
   }, []);
 
   return (
-    <div ClassName="pageWholeBody">
-      <h1 className="titleText">Topics</h1>
+    <div>
+      <h1 className="titleText">Categories</h1>
       <ul className="textList">
-        {topics.map((element) => {
+        {categories.map((element) => {
           return (
             <li key={element.slug}>
-              <Link to={`/articles/${element.slug}`}>
+              <Link to={`/reviews/${element.slug}`}>
                 <h2>{element.slug}</h2>
                 <p>{element.description}</p>
               </Link>
@@ -30,4 +30,4 @@ const TopicList = () => {
   );
 };
 
-export default TopicList;
+export default CategoriesList;

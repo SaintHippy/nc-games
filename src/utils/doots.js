@@ -1,14 +1,14 @@
 // import { useEffect, useState } from "react";
 
-// export const ToggleUpDoot = () => {
-//   const [updoot, setUpdoot] = useState({});
+// export const ToggleUpvote = () => {
+//   const [upvote, setUpvote] = useState({});
 //   console.log("U");
 
 //   useEffect(() => {});
 // };
 
-// export const ToggleDownDoot = () => {
-//   const [downDoot, setDowndoot] = useState({});
+// export const ToggleDownvote = () => {
+//   const [downvote, setDownvote] = useState({});
 //   console.log("D");
 
 //   useEffect(() => {});

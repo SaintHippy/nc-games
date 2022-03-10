@@ -5,16 +5,16 @@ import { ToggleUpDoot, ToggleDownDoot } from "../utils/doots";
 import { deleteComment } from "../utils/api";
 
 const CommentsList = () => {
-  const { article_id, comment_id } = useParams();
+  const { review_id, comment_id } = useParams();
   const [comments, setComments] = useState([]);
 
   console.log("in Comments list");
 
   useEffect(() => {
-    getComments(article_id).then((commentsFromServer) => {
+    getComments(review_id).then((commentsFromServer) => {
       setComments(commentsFromServer);
     });
-  }, [article_id]);
+  }, [review_id]);
 
   console.log(comments);
 

@@ -1,5 +1,5 @@
-import ArticlesList from "./ArticlesList";
-import TopicList from "./TopicsList";
+import ReviewsList from "./ReviewsList";
+import CategoryList from "./CategoriesList";
 import "../styles/home.css";
 
 const HomePage = () => {
@@ -10,10 +10,10 @@ const HomePage = () => {
       </div>
       <div className="mainBody">
         <div className="Box">
-          <TopicList />
+          <CategoryList />
         </div>
         <div className="Box">
-          <ArticlesList />
+          <ReviewsList />
         </div>
       </div>
     </div>

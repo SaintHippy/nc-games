@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getReviews } from "../utils/api";
+// import "../styles/App.css";
 
 const SingleCategory = () => {
   const { category } = useParams();

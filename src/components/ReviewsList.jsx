@@ -13,18 +13,24 @@ const ReviewsList = () => {
 
   return (
     <div className="">
-      <h1 className="titleText">All Reviews</h1>
-      <ul className="textList">
-        {reviews.map((element) => {
-          return (
-            <li key={element.review_id}>
-              <Link to={`/review/${element.review_id}`}>
-                {element.title} by {element.author}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="titleBar">
+        <h1 className="titleText">All Reviews</h1>
+      </div>
+      <div className="mainBody">
+        <div className="wideBox">
+          <ul className="textList">
+            {reviews.map((element) => {
+              return (
+                <li key={element.review_id}>
+                  <Link to={`/review/${element.review_id}`}>
+                    {element.title} by {element.author}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

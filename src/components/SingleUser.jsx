@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getUserByUsername } from "../utils/api";
+// import "../styles/App.css";
 
 const SingleUser = () => {
   const { username } = useParams();

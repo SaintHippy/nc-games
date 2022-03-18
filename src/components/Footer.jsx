@@ -1,4 +1,4 @@
-import "../styles/footer.css";
+// import "../styles/App.css";
 
 const Footer = () => {
   return (

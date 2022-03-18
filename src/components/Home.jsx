@@ -1,16 +1,16 @@
 import ReviewsList from "./ReviewsList";
-import CategoryList from "./CategoriesList";
-import "../styles/home.css";
+import CategoriesList from "./CategoriesList";
+// import "../styles/App.css";
 
 const HomePage = () => {
   return (
-    <div className="pageWholeBody">
+    <div className="">
       <div className="titleBar">
         <h1 className="titleText">Hub</h1>
       </div>
       <div className="mainBody">
         <div className="Box">
-          <CategoryList />
+          <CategoriesList />
         </div>
         <div className="Box">
           <ReviewsList />

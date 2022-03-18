@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSingleReview } from "../utils/api";
+// import "../styles/App.css";
 
 const SingleReview = () => {
   const { review_id } = useParams();

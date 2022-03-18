@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/Home";
 import Header from "./components/Header";
-import ReviewList from "./components/ReviewsList";
+// import ReviewList from "./components/ReviewsList";
 import UserList from "./components/UsersList";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import CategoriesList from "./components/CategoriesList";
-import "./styles/App.css";
+import CategoriesPage from "./components/CategoriesPage";
+import ReviewsPage from "./components/ReviewsPage";
 import SingleReview from "./components/SingleReview";
 import SingleCategory from "./components/SingleCategory";
 import CommentsList from "./components/CommentsList";
@@ -21,11 +21,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/users" elememt={<UserList />} />
         <Route path="/users/:username" element={<SingleUser />} />
-        <Route path="/review" element={<ReviewList />} />
-        <Route path="/review/:review_id" element={<SingleReview />} />
-        <Route path="/review/:topic" element={<SingleCategory />} />
-        <Route path="/review/:review_id/comments" element={<CommentsList />} />
-        <Route path="/categories" element={<CategoriesList />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/reviews/:review_id" element={<SingleReview />} />
+        <Route path="/reviews/:topic" element={<SingleCategory />} />
+        <Route path="/reviews/:review_id/comments" element={<CommentsList />} />
+        <Route path="/categories" element={<CategoriesPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

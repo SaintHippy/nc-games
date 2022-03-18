@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import { getUsers } from "../utils/api";
+// import "../styles/App.css";
 
 const UserList = () => {
   const [Users, setUsers] = useState([]);

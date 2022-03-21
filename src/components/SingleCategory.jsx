@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getReviews } from "../utils/api";
-// import "../styles/App.css";
 
 const SingleCategory = () => {
   const { category } = useParams();
@@ -16,22 +15,29 @@ const SingleCategory = () => {
   console.log(reviews);
 
   return (
-    <div>
-      <h1>Reviews by Category</h1>
-      <h2>{category}</h2>
-      <ul>
-        {reviews.map((element) => {
-          // if (element.category === category_slug) {
-          return (
-            <li key={element.review_id}>
-              <Link to={`/reviews/${element.review_id}`}>
-                {element.title} by {element.author}
-              </Link>
-            </li>
-          );
-          // }
-        })}
-      </ul>
+    <div className="Box">
+      <div className="titleBar">
+        <h1 className="titleText">Reviews by Category</h1>
+      </div>
+      <div className="mainBody">
+        <div className="wideBox">
+          <h2 className="titleText">{category}</h2>
+          <ul className="textList">
+            {reviews.map((element) => {
+              return (
+                <li key={element.review_id}>
+                  <Link to={`/reviews/${element.review_id}`}>
+                    <h2 className="listText">
+                      {element.title} by {element.owner}
+                    </h2>
+                  </Link>
+                </li>
+              );
+              // }
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };

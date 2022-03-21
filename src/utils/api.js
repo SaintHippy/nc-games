@@ -33,7 +33,7 @@ export const getCategories = () => {
 };
 
 export const getReviewsByCategory = (category) => {
-  return gamesApi.get(`/reviews`, { params: { category } }).then((res) => {
+  return gamesApi.get(`/categories`, { params: { category } }).then((res) => {
     return res.data.reviews;
   });
 };
@@ -47,5 +47,11 @@ export const getUsers = () => {
 export const getUserByUsername = (username) => {
   return gamesApi.get(`/users/${username}`).then((res) => {
     return res.data.user;
+  });
+};
+
+export const ToggleUpvote = (review_id) => {
+  return gamesApi.patch(`/reviews/${review_id}`).then((res) => {
+    return res.data;
   });
 };

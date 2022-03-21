@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSingleReview } from "../utils/api";
-// import "../styles/App.css";
+import CommentsList from "../components/CommentsList";
 
 const SingleReview = () => {
   const { review_id } = useParams();
@@ -23,11 +23,14 @@ const SingleReview = () => {
         <div className="textBody">
           <p>{review.review_body}</p>
           <p>Posted by:</p>
-          <Link to={`/users/${review.owner}`}>{review.owner}</Link>
+          <Link to={`/users/${review.owner}`}>
+            <h3 className="listText">{review.owner}</h3>
+          </Link>
           <br></br>
           <Link to={`/reviews/${review_id}/Comments`}>{review.comment_count} comments on this review</Link>
+          <CommentsList />
           {/*<AddComment /> */}
-          <p>{review.votes} users have confidence in this review</p>
+          <h3 className="listText">{review.votes} users have confidence in this review</h3>
           <p>Click to upvote</p>
         </div>
       </div>

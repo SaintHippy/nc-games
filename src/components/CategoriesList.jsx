@@ -13,7 +13,7 @@ const CategoriesList = () => {
   }, []);
 
   return (
-    <div className="">
+    <div>
       <div className="titleBar">
         <h1 className="titleText">Categories</h1>
       </div>
@@ -23,7 +23,7 @@ const CategoriesList = () => {
             {categories.map((category) => {
               return (
                 <li key={category.slug}>
-                  <Link to={`/reviews/categories/${category.slug}`} style={{ textDecoration: "none" }}>
+                  <Link to={`/categories/${category.slug}`} style={{ textDecoration: "none" }}>
                     <h2 className="listText">{category.slug}</h2>
                     <h3 className="listText">{category.description}</h3>
                   </Link>

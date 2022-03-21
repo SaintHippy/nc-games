@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getComments } from "../utils/api";
-import { ToggleUpDoot, ToggleDownDoot } from "../utils/doots";
-import { deleteComment } from "../utils/api";
+
+import { deleteComment, ToggleUpvote } from "../utils/api";
 
 const CommentsList = () => {
   const { review_id, comment_id } = useParams();
@@ -29,10 +29,10 @@ const CommentsList = () => {
                 <p>{comment.body}</p>
                 <p>Posted by:</p>
                 <Link to="/users/:username">{comment.author}</Link>
+                <p></p>
                 <button onClick={deleteComment(comment_id)}>DELET THIS</button>
-
                 <p>{comment.votes} users have confidence in this comment</p>
-                <button onClick={ToggleUpDoot}>vote {comment.author} up</button>
+                <button onClick={ToggleUpvote}>vote {comment.author} up</button>
               </li>
             );
           })}

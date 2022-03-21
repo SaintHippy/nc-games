@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/Home";
 import Header from "./components/Header";
-// import ReviewList from "./components/ReviewsList";
-import UserList from "./components/UsersList";
+import UsersPage from "./components/UsersPage";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import CategoriesPage from "./components/CategoriesPage";
@@ -19,11 +18,11 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/users" elememt={<UserList />} />
+        <Route path="/users" elememt={<UsersPage />} />
         <Route path="/users/:username" element={<SingleUser />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
-        <Route path="/reviews/:topic" element={<SingleCategory />} />
+        <Route path="/reviews/:category" element={<SingleCategory />} />
         <Route path="/reviews/:review_id/comments" element={<CommentsList />} />
         <Route path="/categories" element={<CategoriesPage />} />
       </Routes>

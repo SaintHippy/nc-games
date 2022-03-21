@@ -20,14 +20,17 @@ const SingleReview = () => {
         <h1>{review.title}</h1>
       </div>
       <div class="Box">
-        <p>{review.body}</p>
-        <p>Posted by:</p>
-        <Link to={`/users/${review.author}`}>{review.author}</Link>
-        <br></br>
-        <Link to={`/reviews/${review_id}/Comments`}>{review.comment_count} comments on this review</Link>
+        <div className="textBody">
+          <p>{review.review_body}</p>
+          <p>Posted by:</p>
+          <Link to={`/users/${review.owner}`}>{review.owner}</Link>
+          <br></br>
+          <Link to={`/reviews/${review_id}/Comments`}>{review.comment_count} comments on this review</Link>
+          {/*<AddComment /> */}
+          <p>{review.votes} users have confidence in this review</p>
+          <p>Click to upvote</p>
+        </div>
       </div>
-      <p>users have {review.votes} confidence in this review</p>
-      <p>Click to upvote</p>
     </div>
   );
 };

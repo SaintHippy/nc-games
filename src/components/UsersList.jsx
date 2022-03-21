@@ -1,31 +1,41 @@
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getUsers } from "../utils/api";
-// import "../styles/App.css";
 
-const UserList = () => {
-  const [Users, setUsers] = useState([]);
+const UsersList = () => {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUsers().then((UsersFromServer) => {
-      setUsers(UsersFromServer);
+    getUsers().then((usersFromServer) => {
+      setUsers(usersFromServer);
     });
   }, []);
 
   return (
     <div>
-      <h1>Users</h1>
-      <ul>
-        {Users.map((element) => {
-          return (
-            <li key={element.slug}>
-              <p>{element.slug}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="titleBar">
+        <h1 className="titleText">Users</h1>
+      </div>
+      <div className="mainBody">
+        <div className="wideBox">
+          <ul>
+            {users.map((user) => {
+              return (
+                <li key={user.username}>
+                  <Link to={`/users/${user.username}`}>
+                    <h2 className="listText">
+                      blah
+                      {user.username}
+                    </h2>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default UserList;
+export default UsersList;

@@ -19,24 +19,25 @@ const CommentsList = () => {
   console.log(comments);
 
   return (
-    <div>
-      <h3>comments</h3>
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.comment_id}>
-              <p>{comment.body}</p>
-              <p>Posted by:</p>
-              <Link to="/users/:username">{comment.author}</Link>
-              <button onClick={deleteComment(comment_id)}>DELET THIS</button>
+    <div className="Box">
+      <div className="textBody">
+        <h3>comments</h3>
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <li key={comment.comment_id}>
+                <p>{comment.body}</p>
+                <p>Posted by:</p>
+                <Link to="/users/:username">{comment.author}</Link>
+                <button onClick={deleteComment(comment_id)}>DELET THIS</button>
 
-              <p>users have {comment.votes} confidence in this comment</p>
-              <button onClick={ToggleUpDoot}>vote {comment.author} up</button>
-              <button onClick={ToggleDownDoot}>vote {comment.author} Down</button>
-            </li>
-          );
-        })}
-      </ul>
+                <p>{comment.votes} users have confidence in this comment</p>
+                <button onClick={ToggleUpDoot}>vote {comment.author} up</button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

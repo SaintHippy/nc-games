@@ -10,10 +10,10 @@ const HomePage = () => {
       </div>
       <div className="mainBody">
         <div className="Box">
-          <CategoriesList />
+          <ReviewsList />
         </div>
         <div className="Box">
-          <ReviewsList />
+          <CategoriesList />
         </div>
       </div>
     </div>

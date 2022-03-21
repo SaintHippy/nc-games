@@ -24,7 +24,7 @@ const SingleCategory = () => {
           // if (element.category === category_slug) {
           return (
             <li key={element.review_id}>
-              <Link to={`/review/${element.review_id}`}>
+              <Link to={`/reviews/${element.review_id}`}>
                 {element.title} by {element.author}
               </Link>
             </li>

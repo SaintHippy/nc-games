@@ -20,12 +20,12 @@ const CategoriesList = () => {
       <div className="mainBody">
         <div className="wideBox">
           <ul className="textList">
-            {categories.map((element) => {
+            {categories.map((category) => {
               return (
-                <li key={element.slug}>
-                  <Link to={`/reviews/${element.slug}`}>
-                    <h2>{element.slug}</h2>
-                    <p>{element.description}</p>
+                <li key={category.slug}>
+                  <Link to={`/reviews/categories/${category.slug}`} style={{ textDecoration: "none" }}>
+                    <h2 className="listText">{category.slug}</h2>
+                    <h3 className="listText">{category.description}</h3>
                   </Link>
                 </li>
               );

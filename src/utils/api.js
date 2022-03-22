@@ -62,8 +62,8 @@ export const getUserByUsername = (username) => {
   });
 };
 
-export const ToggleUpvote = (review_id) => {
-  return gamesApi.patch(`/reviews/${review_id}`).then((res) => {
-    return res.data;
+export const toggleVote = (review_id, numOfVotes) => {
+  return gamesApi.patch(`/reviews/${review_id}`, { votes: numOfVotes }).then((res) => {
+    return res.data.newReview;
   });
 };

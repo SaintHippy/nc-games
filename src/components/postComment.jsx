@@ -26,7 +26,7 @@ const PostComment = () => {
         What do you think?:
         <input id="comment" type="textarea" name="comment-body" />
         <br></br>
-        <button>Add A Comment</button>
+        <button>Add your comment</button>
       </form>
     </div>
   );

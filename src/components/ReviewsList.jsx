@@ -4,13 +4,18 @@ import { Link } from "react-router-dom";
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState([]);
+  const [sortBy, setSortBy] = useState("reviews.created_at");
 
   useEffect(() => {
-    getReviews().then((reviewsFromServer) => {
+    getReviews(sortBy).then((reviewsFromServer) => {
       setReviews(reviewsFromServer);
     });
-  }, []);
+  }, [sortBy]);
 
+  const handleSortChange = (event) => {
+    event.preventDefault();
+    setSortBy(event.target.value);
+  };
   return (
     <div className="">
       <div className="titleBar">
@@ -19,6 +24,16 @@ const ReviewsList = () => {
       <div className="mainBody">
         <div className="wideBox">
           <ul>
+            <div id="sort">
+              <label className="titleText" htmlFor="sort_by">
+                SORT BY:{" "}
+              </label>
+              <select name="sort_by" onChange={handleSortChange}>
+                <option value="reviews.created_at">Date</option>
+                <option value="comment_count">Comments</option>
+                <option value="reviews.votes">Likes</option>
+              </select>
+            </div>
             {reviews.map((review) => {
               return (
                 <li key={review.review_id}>

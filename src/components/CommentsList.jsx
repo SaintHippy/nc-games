@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getComments } from "../utils/api";
+import { getComments, deleteComment } from "../utils/api";
 
-import { deleteComment } from "../utils/api";
 import PostComment from "./postComment";
 
 const CommentsList = () => {
@@ -17,7 +16,7 @@ const CommentsList = () => {
     getComments(review_id).then((commentsFromServer) => {
       setComments(commentsFromServer);
     });
-  }, [review_id]);
+  }, [review_id, comment_id]);
 
   return (
     <div className="Box">

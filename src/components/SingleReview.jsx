@@ -1,17 +1,37 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getSingleReview } from "../utils/api";
+import { getSingleReview, toggleVote } from "../utils/api";
 import CommentsList from "../components/CommentsList";
 
 const SingleReview = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
+  const [reviewVoted, setReviewVoted] = useState(false);
+  const [votes, setVotes] = useState();
+
+  const toggleUpvote = () => {
+    if (!reviewVoted) {
+      setReviewVoted(true);
+      setVotes((currentVotes) => currentVotes + 1);
+      toggleVote(review_id, 1).catch(() => {
+        setReviewVoted(false);
+        setVotes((currentVotes) => currentVotes - 1);
+      });
+    } else {
+      setReviewVoted(false);
+      setVotes((currentVotes) => currentVotes - 1);
+      toggleVote(review_id, -1).catch(() => {
+        setReviewVoted(true);
+        setVotes((currentVotes) => currentVotes + 1);
+      });
+    }
+  };
 
   useEffect(() => {
     getSingleReview(review_id).then((reviewFromServer) => {
       setReview(reviewFromServer);
     });
-  }, [review_id]);
+  }, [review_id, votes]);
 
   return (
     <div className="pageWholeBody">
@@ -31,7 +51,7 @@ const SingleReview = () => {
           <CommentsList />
           {/*<AddComment /> */}
           <h3 className="listText">{review.votes} users have confidence in this review</h3>
-          <p>Click to upvote</p>
+          <button onClick={toggleUpvote}>Click to upvote</button>
         </div>
       </div>
     </div>

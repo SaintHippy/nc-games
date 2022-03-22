@@ -14,12 +14,12 @@ const SingleReview = () => {
   }, [review_id]);
 
   return (
-    <div class="pageWholeBody">
+    <div className="pageWholeBody">
       <h2>{review.topic}</h2>
-      <div class="titleText">
+      <div className="titleText">
         <h1>{review.title}</h1>
       </div>
-      <div class="Box">
+      <div className="Box">
         <div className="textBody">
           <p>{review.review_body}</p>
           <p>Posted by:</p>

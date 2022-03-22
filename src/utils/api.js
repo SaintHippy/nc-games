@@ -20,9 +20,21 @@ export const getComments = (review_id) => {
   });
 };
 
+export const postComment = (username, body, review_id) => {
+  return gamesApi
+    .post(`/reviews/${review_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then((res) => {
+      return res;
+    });
+};
+
 export const deleteComment = (comment_id) => {
-  return gamesApi.delete(`/comment/${comment_id}`).then((res) => {
-    return console.log("success");
+  return gamesApi.delete(`/comments/${comment_id}`).then((res) => {
+    console.log("success");
+    return res;
   });
 };
 

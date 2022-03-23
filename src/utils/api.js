@@ -2,8 +2,8 @@ import axios from "axios";
 
 const gamesApi = axios.create({ baseURL: "https://iansncgames.herokuapp.com/api" });
 
-export const getReviews = (category) => {
-  return gamesApi.get("/reviews", { params: { category } }).then((res) => {
+export const getReviews = (category, sort_by) => {
+  return gamesApi.get(`/reviews?sort_by${sort_by}`, { params: { category } }).then((res) => {
     return res.data.reviews;
   });
 };
@@ -33,7 +33,6 @@ export const postComment = (username, body, review_id) => {
 
 export const deleteComment = (comment_id) => {
   return gamesApi.delete(`/comments/${comment_id}`).then((res) => {
-    console.log("success");
     return res;
   });
 };

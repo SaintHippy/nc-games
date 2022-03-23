@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState([]);
   const [sortBy, setSortBy] = useState("reviews.created_at");
+  const { category } = useParams;
 
   useEffect(() => {
-    getReviews(sortBy).then((reviewsFromServer) => {
+    getReviews(category, sortBy).then((reviewsFromServer) => {
       setReviews(reviewsFromServer);
     });
-  }, [sortBy]);
+  }, [category, sortBy]);
 
   const handleSortChange = (event) => {
     event.preventDefault();
     setSortBy(event.target.value);
   };
   return (
-    <div className="">
+    <div className="Box">
       <div className="titleBar">
         <h1 className="titleText">Reviews</h1>
       </div>
@@ -29,8 +30,8 @@ const ReviewsList = () => {
                 SORT BY:{" "}
               </label>
               <select name="sort_by" onChange={handleSortChange}>
-                <option value="reviews.created_at">Date</option>
-                <option value="comment_count">Comments</option>
+                <option value={reviews.created_at}>Date</option>
+                <option value={reviews.comment_count}>Comments</option>
                 <option value="reviews.votes">Likes</option>
               </select>
             </div>

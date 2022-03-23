@@ -49,7 +49,6 @@ const SingleReview = () => {
           <br></br>
           <Link to={`/reviews/${review_id}/Comments`}>{review.comment_count} comments on this review</Link>
           <CommentsList />
-          {/*<AddComment /> */}
           <h3 className="listText">{review.votes} users have confidence in this review</h3>
           <button onClick={toggleUpvote}>Click to upvote</button>
         </div>

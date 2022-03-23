@@ -1,15 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
 import { UserContext } from "../utils/UserContext";
 
-const PostComment = () => {
+const PostComment = (comments) => {
   let { review_id } = useParams();
-  review_id = Number(review_id);
 
   const { user } = useContext(UserContext);
 
   const submitComment = (event) => {
+    event.preventDefault();
     const comment = event.target[0].value;
     postComment(user.username, comment, review_id)
       .then((returnedReview) => {
@@ -19,14 +19,16 @@ const PostComment = () => {
         console.log(err);
       });
   };
+  const [newComment, setNewComment] = useState("");
 
   return (
     <div className="commentForm">
-      <form onSubmit={submitComment} action={`/reviews/${review_id}`}>
-        What do you think?:
-        <input id="comment" type="textarea" name="comment-body" />
-        <br></br>
-        <button>Add your comment</button>
+      <form onSubmit={submitComment}>
+        <label>
+          What do you think?:
+          <input type="textarea" value={newComment} onChange={(event) => setNewComment(event.target.value)} />
+        </label>
+        <button type="submit">Add your comment</button>
       </form>
     </div>
   );

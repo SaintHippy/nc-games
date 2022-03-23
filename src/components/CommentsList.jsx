@@ -1,45 +1,34 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getComments, deleteComment } from "../utils/api";
-
-import PostComment from "./postComment";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getComments } from "../utils/api";
+import SingleComment from "./SingleComment";
 
 const CommentsList = () => {
-  const { review_id, comment_id } = useParams();
   const [comments, setComments] = useState([]);
-
-  const handleDeleteComment = (event) => {
-    deleteComment(event.target.name);
-  };
+  const { review_id } = useParams();
 
   useEffect(() => {
-    getComments(review_id).then((commentsFromServer) => {
-      setComments(commentsFromServer);
-    });
-  }, [review_id, comment_id]);
+    getComments(review_id)
+      .then((returnedComments) => {
+        setComments(returnedComments);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
+  }, [review_id]);
 
   return (
-    <div className="Box">
-      <div className="textBody">
-        <h3>comments</h3>
-        <ul>
-          {comments.map((comment) => {
-            return (
-              <li key={comment.comment_id}>
-                <p>{comment.body}</p>
-                <p>Posted by:</p>
-                <Link to={`/users/${comment.author}`}>{comment.author}</Link>
-                <p></p>
-                <button name={comment.comment_id} onClick={handleDeleteComment}>
-                  DELET THIS
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <PostComment />
-      </div>
-    </div>
+    <section className="comments">
+      <ul>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.comment_id}>
+              <SingleComment comment={comment} />
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 

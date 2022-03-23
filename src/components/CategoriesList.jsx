@@ -13,7 +13,7 @@ const CategoriesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="Box">
       <div className="titleBar">
         <h1 className="titleText">Categories</h1>
       </div>

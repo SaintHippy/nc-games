@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getComments } from "../utils/api";
+import PostComment from "./postComment";
 import SingleComment from "./SingleComment";
 
 const CommentsList = () => {
@@ -15,19 +16,22 @@ const CommentsList = () => {
       .catch((err) => {
         console.dir(err);
       });
-  }, [review_id]);
+  }, [review_id, comments]);
 
   return (
     <section className="comments">
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.comment_id}>
-              <SingleComment comment={comment} />
-            </li>
-          );
-        })}
-      </ul>
+      <div className="Box">
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <li key={comment.comment_id}>
+                <SingleComment comment={comment} />
+              </li>
+            );
+          })}
+          <PostComment />
+        </ul>
+      </div>
     </section>
   );
 };

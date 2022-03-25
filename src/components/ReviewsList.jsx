@@ -8,12 +8,12 @@ const ReviewsList = () => {
   const { category } = useParams;
 
   useEffect(() => {
-    getReviews(category, sortBy).then((reviewsFromServer) => {
+    getReviews(sortBy).then((reviewsFromServer) => {
       setReviews(reviewsFromServer);
     });
   }, [category, sortBy]);
 
-  const handleSortChange = (event) => {
+  const changeSortBy = (event) => {
     event.preventDefault();
     setSortBy(event.target.value);
   };
@@ -25,13 +25,13 @@ const ReviewsList = () => {
       <div className="mainBody">
         <div className="wideBox">
           <ul>
-            <div id="sort">
+            <div className="sort">
               <label className="titleText" htmlFor="sort_by">
-                SORT BY:{" "}
+                SORT REVIEWS BY:{" "}
               </label>
-              <select name="sort_by" onChange={handleSortChange}>
-                <option value={reviews.created_at}>Date</option>
-                <option value={reviews.comment_count}>Comments</option>
+              <select name="sort_by" onChange={changeSortBy}>
+                <option value="reviews.created_at">Date</option>
+                <option value="reviews.comment_count">Comments</option>
                 <option value="reviews.votes">Likes</option>
               </select>
             </div>

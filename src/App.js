@@ -23,8 +23,8 @@ function App() {
           <Route path="/" element={<ReviewsList />} />
           <Route path="/reviews" element={<ReviewsList />} />
           <Route path="/reviews/:review_id" element={<SingleReview />} />
-          <Route path="/categories/:category" element={<SingleCategory />} />
           <Route path="/reviews/:review_id/comments" element={<CommentsList />} />
+          <Route path="/categories/:category" element={<SingleCategory />} />
           <Route path="/categories" element={<CategoriesList />} />
           {/* <Route path="/users" elememt={<UsersPage />} /> */}
           {/* <Route path="/users/:username" element={<SingleUser />} /> */}

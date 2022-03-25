@@ -6,7 +6,7 @@ const Nav = () => {
       <Link to="/categories">
         <p className="NavLink">All Categories</p>
       </Link>
-      <Link to="/">
+      <Link to="/reviews">
         <p className="NavLink">All Reviews</p>
       </Link>
     </div>

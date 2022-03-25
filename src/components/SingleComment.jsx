@@ -34,13 +34,13 @@ const SingleComment = ({ comment, setCommentsLength, review_id }) => {
   };
 
   return (
-    <div className="Box">
+    <div className="">
       <div className="textBody">
         <h3 id="comment">{comment.body}</h3>
         <p>Posted by: {comment.author}</p>
 
         <p>{commentVotes} users rate this.</p>
-        <button onClick={toggleUpVote}>{commentVoted ? "unvote" : "upvote"}</button>
+        {/* <button onClick={toggleUpVote}>{commentVoted ? "unvote" : "upvote"}</button> */}
         {user.username === comment.author ? (
           <button name={comment.comment_id} onClick={removeComment}>
             DELET THIS!

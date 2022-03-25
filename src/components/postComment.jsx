@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
 import { UserContext } from "../utils/UserContext";
 
-const PostComment = (comments) => {
+const PostComment = (comment) => {
   let { review_id } = useParams();
 
   const { user } = useContext(UserContext);
@@ -28,7 +28,7 @@ const PostComment = (comments) => {
           What do you think?:
           <input type="textarea" value={newComment} onChange={(event) => setNewComment(event.target.value)} />
         </label>
-        <button type="submit">Add your comment</button>
+        <button type="submit">Add your own thoughts</button>
       </form>
     </div>
   );

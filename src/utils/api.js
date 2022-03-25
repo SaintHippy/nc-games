@@ -2,8 +2,12 @@ import axios from "axios";
 
 const gamesApi = axios.create({ baseURL: "https://iansncgames.herokuapp.com/api" });
 
-export const getReviews = (category, sort_by) => {
-  return gamesApi.get(`/reviews?sort_by${sort_by}`, { params: { category } }).then((res) => {
+export const getReviews = (sort_by) => {
+  let path = "/reviews";
+  if (sort_by) {
+    path += `?sort_by=${sort_by};`;
+  }
+  return gamesApi.get(path).then((res) => {
     return res.data.reviews;
   });
 };
@@ -63,6 +67,7 @@ export const getUserByUsername = (username) => {
 
 export const toggleVote = (review_id, numOfVotes) => {
   return gamesApi.patch(`/reviews/${review_id}`, { votes: numOfVotes }).then((res) => {
-    return res.data.newReview;
+    console.log(res.data.review.votes);
+    return res.data.review.votes;
   });
 };

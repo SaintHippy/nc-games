@@ -12,8 +12,6 @@ const SingleCategory = () => {
     });
   }, [category]);
 
-  console.log(reviews);
-
   return (
     <div className="Box">
       <div className="titleBar">

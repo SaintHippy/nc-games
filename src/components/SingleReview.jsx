@@ -1,28 +1,31 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import { getSingleReview, toggleVote } from "../utils/api";
+import { useParams } from "react-router-dom";
+import { UserContext } from "../utils/UserContext";
 import CommentsList from "../components/CommentsList";
 
 const SingleReview = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
+  const [reviewVotes, setReviewVotes] = useState(review.votes);
   const [reviewVoted, setReviewVoted] = useState(false);
-  const [votes, setVotes] = useState();
 
-  const toggleUpvote = () => {
+  const { user } = useContext(UserContext);
+
+  const toggleUpVote = () => {
     if (!reviewVoted) {
       setReviewVoted(true);
-      setVotes((currentVotes) => currentVotes + 1);
+      setReviewVotes((currentVotes) => currentVotes + 1);
       toggleVote(review_id, 1).catch(() => {
         setReviewVoted(false);
-        setVotes((currentVotes) => currentVotes - 1);
+        setReviewVotes((currentVotes) => currentVotes - 1);
       });
     } else {
       setReviewVoted(false);
-      setVotes((currentVotes) => currentVotes - 1);
+      setReviewVotes((currentVotes) => currentVotes - 1);
       toggleVote(review_id, -1).catch(() => {
         setReviewVoted(true);
-        setVotes((currentVotes) => currentVotes + 1);
+        setReviewVotes((currentVotes) => currentVotes + 1);
       });
     }
   };
@@ -31,7 +34,7 @@ const SingleReview = () => {
     getSingleReview(review_id).then((reviewFromServer) => {
       setReview(reviewFromServer);
     });
-  }, [review_id, votes]);
+  }, [review_id, reviewVoted, reviewVotes]);
 
   return (
     <div className="pageWholeBody">
@@ -43,14 +46,11 @@ const SingleReview = () => {
         <div className="textBody">
           <p>{review.review_body}</p>
           <p>Posted by:</p>
-          <Link to={`/users/${review.owner}`}>
-            <h3 className="listText">{review.owner}</h3>
-          </Link>
-          <br></br>
-          <Link to={`/reviews/${review_id}/Comments`}>{review.comment_count} comments on this review</Link>
+          <h3 className="listText">{review.owner}</h3>
+          <p>{review.comment_count} comments on this review</p>
           <CommentsList />
           <h3 className="listText">{review.votes} users have confidence in this review</h3>
-          <button onClick={toggleUpvote}>Click to upvote</button>
+          <button onClick={toggleUpVote}>{reviewVoted ? "unvote" : "upvote"}</button>
         </div>
       </div>
     </div>

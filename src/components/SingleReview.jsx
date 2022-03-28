@@ -7,7 +7,7 @@ import CommentsList from "../components/CommentsList";
 const SingleReview = () => {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
-  const [reviewVotes, setReviewVotes] = useState(review.votes);
+  const [reviewVotes, setReviewVotes] = useState(0);
   const [reviewVoted, setReviewVoted] = useState(false);
 
   const { user } = useContext(UserContext);
@@ -33,8 +33,9 @@ const SingleReview = () => {
   useEffect(() => {
     getSingleReview(review_id).then((reviewFromServer) => {
       setReview(reviewFromServer);
+      setReviewVotes(reviewFromServer.votes);
     });
-  }, [review_id, reviewVoted, reviewVotes]);
+  }, [review_id]);
 
   return (
     <div className="pageWholeBody">
@@ -49,7 +50,7 @@ const SingleReview = () => {
           <h3 className="listText">{review.owner}</h3>
           <p>{review.comment_count} comments on this review</p>
           <CommentsList />
-          <h3 className="listText">{review.votes} users have confidence in this review</h3>
+          <h3 className="listText">{reviewVotes} users have confidence in this review</h3>
           <button onClick={toggleUpVote}>{reviewVoted ? "unvote" : "upvote"}</button>
         </div>
       </div>

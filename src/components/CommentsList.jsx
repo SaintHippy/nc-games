@@ -14,9 +14,9 @@ const CommentsList = () => {
         setComments(returnedComments);
       })
       .catch((err) => {
-        console.dir(err);
+        console.log(err);
       });
-  }, [review_id, comments]);
+  }, [review_id]);
 
   return (
     <section className="comments">

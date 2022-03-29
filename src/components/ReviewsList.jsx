@@ -4,11 +4,11 @@ import { Link, useParams } from "react-router-dom";
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState([]);
-  const [sortBy, setSortBy] = useState("reviews.created_at");
+  const [sortBy, setSortBy] = useState("comment_count");
   const { category } = useParams;
 
   useEffect(() => {
-    getReviews(sortBy).then((reviewsFromServer) => {
+    getReviews(category, sortBy).then((reviewsFromServer) => {
       setReviews(reviewsFromServer);
     });
   }, [category, sortBy]);
@@ -31,16 +31,20 @@ const ReviewsList = () => {
               </label>
               <select name="sort_by" onChange={changeSortBy}>
                 <option value="reviews.created_at">Date</option>
-                <option value="reviews.comment_count">Comments</option>
+                <option value="comment_count">Comments</option>
                 <option value="reviews.votes">Likes</option>
               </select>
             </div>
             {reviews.map((review) => {
+              // const newFormattedDate = $.datepicker.formatDate("mm/dd/yy", new Date(Date({review.created_at})));
               return (
                 <li key={review.review_id}>
                   <Link to={`/reviews/${review.review_id}`} style={{ textDecoration: "none" }}>
                     <h2 className="listText">
                       {review.title} by {review.owner}
+                      {/* <br></br>on {newFormattedDate} */}
+                      <br></br>
+                      {review.comment_count} comments & {review.votes} confidence
                     </h2>
                   </Link>
                 </li>

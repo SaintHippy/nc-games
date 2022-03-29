@@ -13,10 +13,8 @@ const CommentsList = () => {
       .then((returnedComments) => {
         setComments(returnedComments);
       })
-      .catch((err) => {
-     
-      });
-  }, [review_id]);
+      .catch((err) => {});
+  }, [review_id, comments]);
 
   return (
     <section className="comments">

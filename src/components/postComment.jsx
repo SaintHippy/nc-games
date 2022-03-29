@@ -12,9 +12,9 @@ const PostComment = (comment) => {
     event.preventDefault();
     const comment = event.target[0].value;
     postComment(user.username, comment, review_id)
-      .then((returnedReview) => {})
+      .then(setNewComment(""))
       .catch((err) => {
-    
+        console.log(err);
       });
   };
   const [newComment, setNewComment] = useState("");
@@ -24,7 +24,12 @@ const PostComment = (comment) => {
       <form onSubmit={submitComment}>
         <label>
           What do you think?:
-          <input type="textarea" value={newComment} onChange={(event) => setNewComment(event.target.value)} />
+          <input
+            placeholder="Leave your comment here"
+            type="textarea"
+            value={newComment}
+            onChange={(event) => setNewComment(event.target.value)}
+          />
         </label>
         <button type="submit">Add your own thoughts</button>
       </form>

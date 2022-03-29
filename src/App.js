@@ -10,9 +10,6 @@ import SingleReview from "./components/SingleReview";
 import SingleCategory from "./components/SingleCategory";
 import CommentsList from "./components/CommentsList";
 
-// import UsersPage from "./components/UsersPage";
-// import SingleUser from "./components/SingleUser";
-
 function App() {
   return (
     <UserProvider>

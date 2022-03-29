@@ -36,7 +36,6 @@ const ReviewsList = () => {
               </select>
             </div>
             {reviews.map((review) => {
-              // const newFormattedDate = $.datepicker.formatDate("mm/dd/yy", new Date(Date({review.created_at})));
               return (
                 <li key={review.review_id}>
                   <Link to={`/reviews/${review.review_id}`} style={{ textDecoration: "none" }}>

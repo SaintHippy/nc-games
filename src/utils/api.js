@@ -11,7 +11,7 @@ export const getReviews = (category, sort_by) => {
   } else if (sort_by) {
     path += `?sort_by=${sort_by}`;
   }
-  console.log(path);
+
   return gamesApi.get(path).then((res) => {
     return res.data.reviews;
   });
@@ -62,6 +62,6 @@ export const getUserByUsername = async (username) => {
 
 export const toggleVote = async (review_id, numOfVotes) => {
   const res = await gamesApi.patch(`/reviews/${review_id}`, { votes: numOfVotes });
-  console.log(res.data.review.votes);
+
   return res.data.review.votes;
 };

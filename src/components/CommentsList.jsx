@@ -14,7 +14,7 @@ const CommentsList = () => {
         setComments(returnedComments);
       })
       .catch((err) => {
-        console.log(err);
+     
       });
   }, [review_id]);
 

@@ -12,11 +12,9 @@ const PostComment = (comment) => {
     event.preventDefault();
     const comment = event.target[0].value;
     postComment(user.username, comment, review_id)
-      .then((returnedReview) => {
-        console.log(returnedReview);
-      })
+      .then((returnedReview) => {})
       .catch((err) => {
-        console.log(err);
+    
       });
   };
   const [newComment, setNewComment] = useState("");

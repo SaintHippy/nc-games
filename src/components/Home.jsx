@@ -1,6 +1,5 @@
 import ReviewsList from "./ReviewsList";
 import CategoriesList from "./CategoriesList";
-// import "../styles/App.css";
 
 const HomePage = () => {
   return (

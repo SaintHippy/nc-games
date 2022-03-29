@@ -31,7 +31,6 @@ const SingleCategory = () => {
                   </Link>
                 </li>
               );
-              // }
             })}
           </ul>
         </div>
